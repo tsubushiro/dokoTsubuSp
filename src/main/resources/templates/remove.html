@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>削除</title>
+</head>
+<body>
+	<h1>以下の内容を削除しますか</h1>
+	<p>名前:[[${registerUser.name}]]</p>
+	<p>年齢:[[${registerUser.age}]]</p>
+	<a th:href="@{/removeOK}">退会する</a>
+	<a th:href="@{/loginOK}">戻る</a>
+</body>
+</html>

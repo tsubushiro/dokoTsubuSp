@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ログインOK</title>
+</head>
+<body>
+	<h1>ようこそ[[${registerUser.name}]]さん</h1>
+<!--/*	<h1>ようこそ[[${loginUser.name}]]さん</h1>*/-->
+	<p>ログイン成功です</p>
+	<a th:href="@{/dokoTsubu}">どこつぶメイン</a><br>
+	<a th:href="@{/logout}">ログアウトページへ</a><br>
+	<a th:href="@{/remove}">退会する</a>
+</body>
+</html>

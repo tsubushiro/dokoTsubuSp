@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>どこつぶメイン</title>
+</head>
+<body>
+<p>[[${registerUser.name}]]さん、ログイン中</p>
+<a th:href="@{/logout}">ログアウト</a>
+</p>
+<p><a th:href="@{/dokoTsubu}">更新</a></p>
+<form th:action="@{/dokoTsubu}" method="post" th:object="${mutter}">
+	<input type="text" name="text" th:field="*{text}">
+	<input type="submit">
+	<ul th:if="${#fields.hasErrors('*')}" style="color:red">
+		<li th:each="err:${#fields.errors('*')}" th:text="${err}"></li>
+	</ul>
+</form>
+<!--/*
+<c:forEach var="mutter" items="${mutterList}">
+	<p><c:out value="${mutter.userName }" />:
+		<c:out value="${mutter.text }"/></p>
+</c:forEach>
+*/-->
+<table>
+	<tr th:each="mutter:${mutterList}">
+		<td >
+			<span th:text="${mutter.name}" 
+			th:style="'font-weight:'+ ( ${mutter.name == registerUser.name} ? 'bold' : 'normal' )">名前</span>
+			:
+		</td>
+		<td th:text="${mutter.text}">テキスト</td>
+	</tr>
+</div>
+</body>
+</html>
